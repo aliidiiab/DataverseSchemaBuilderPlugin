@@ -79,6 +79,3 @@ Issues and pull requests are welcome. If you're changing the Excel reading logic
 
 Ali Diab
 
-## License
-
-Add your preferred license here (e.g. MIT).

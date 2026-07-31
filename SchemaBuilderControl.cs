@@ -28,6 +28,7 @@ namespace DataverseSchemaBuilderPlugin
         }
 
         private Label lblConnection;
+        private Button btnConnect;
         private Button btnDownloadTemplate;
         private TextBox txtFilePath;
         private Button btnBrowse;
@@ -44,6 +45,26 @@ namespace DataverseSchemaBuilderPlugin
         public SchemaBuilderControl()
         {
             BuildUi();
+            Load += SchemaBuilderControl_Load;
+        }
+
+        private void SchemaBuilderControl_Load(object sender, EventArgs e)
+        {
+            // If the tool is opened with no environment connected yet, immediately show
+            // the same connection picker XrmToolBox shows before entering a tool -
+            // ExecuteMethod handles checking for a connection and prompting if needed.
+            if (Service == null) ExecuteMethod(OnConnectRequested);
+        }
+
+        private void BtnConnect_Click(object sender, EventArgs e)
+        {
+            ExecuteMethod(OnConnectRequested);
+        }
+
+        private void OnConnectRequested()
+        {
+            // No-op: UpdateConnection() already refreshes the UI once a connection is made.
+            // This method exists only because ExecuteMethod requires a named target.
         }
 
         // ----- Connection -----
@@ -92,7 +113,7 @@ namespace DataverseSchemaBuilderPlugin
 
             cmbSolution.SelectedIndex = 0;
         }
-
+        
         // ----- UI construction -----
         private void BuildUi()
         {
@@ -104,6 +125,7 @@ namespace DataverseSchemaBuilderPlugin
                 ColumnCount = 1,
                 Padding = new Padding(10)
             };
+        
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -112,14 +134,19 @@ namespace DataverseSchemaBuilderPlugin
             layout.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
             Controls.Add(layout);
 
+            var connectionPanel = new FlowLayoutPanel { AutoSize = true, WrapContents = false, Margin = new Padding(0, 0, 0, 10) };
             lblConnection = new Label
             {
                 Text = "Not connected",
                 AutoSize = true,
                 Font = new Font(Font, FontStyle.Bold),
-                Margin = new Padding(3, 3, 3, 10)
+                Margin = new Padding(3, 6, 10, 3)
             };
-            layout.Controls.Add(lblConnection);
+            connectionPanel.Controls.Add(lblConnection);
+            btnConnect = new Button { Text = "Select Environment...", AutoSize = true };
+            btnConnect.Click += BtnConnect_Click;
+            connectionPanel.Controls.Add(btnConnect);
+            layout.Controls.Add(connectionPanel);
 
             // Row: Download template
             var templatePanel = new FlowLayoutPanel { AutoSize = true, WrapContents = false };
@@ -149,7 +176,6 @@ namespace DataverseSchemaBuilderPlugin
             // Row: Solution settings
             var solutionGroup = new GroupBox { Text = "3. Solution", AutoSize = true, Width = 650, Margin = new Padding(3, 10, 3, 3) };
             var solutionLayout = new TableLayoutPanel { AutoSize = true, ColumnCount = 3, Padding = new Padding(8) };
-
             solutionLayout.Controls.Add(new Label { Text = "3. Choose a solution:", AutoSize = true, Margin = new Padding(3, 6, 3, 3) }, 0, 0);
             cmbSolution = new ComboBox { Width = 350, DropDownStyle = ComboBoxStyle.DropDownList };
             cmbSolution.SelectedIndexChanged += CmbSolution_SelectedIndexChanged;
@@ -197,6 +223,7 @@ namespace DataverseSchemaBuilderPlugin
             };
             layout.Controls.Add(txtLog);
         }
+
 
         // ----- Button handlers -----
         private void BtnDownloadTemplate_Click(object sender, EventArgs e)

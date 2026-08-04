@@ -39,7 +39,7 @@ namespace DataverseSchemaBuilderPlugin
             {
                 "String", "Memo", "Integer", "BigInt", "Decimal", "Double", "Money",
                 "Boolean", "DateTime", "Lookup", "Customer", "Owner", "Picklist",
-                "MultiSelectPicklist",  "EntityName"
+                "MultiSelectPicklist"
             };
             for (int i = 0; i < dataTypes.Length; i++)
                 ws.Cell(i + 1, 1).Value = dataTypes[i];
@@ -171,10 +171,10 @@ namespace DataverseSchemaBuilderPlugin
             var notes = new[]
             {
                 "String = single line text | Memo = multi-line text | Integer/BigInt = whole number | Decimal/Double = decimal number",
-                "Money = currency | Boolean = two options (yes/no) | DateTime = date and time | Uniqueidentifier = GUID",
+                "Money = currency | Boolean = two options (yes/no) | DateTime = date and time",
                 "Lookup = single reference to another table -> fill Related Table Logical Name | Customer = lookup to account/contact",
                 "Picklist = single-select choice -> fill Option Set Values | MultiSelectPicklist = multi-select choice -> fill Option Set Values",
-                "Owner = ownership field (user/team) | EntityName = stores a table logical name as text",
+                "Owner = ownership field (user/team)",
                 "Required Level maps to Dataverse RequiredLevel: None, Recommended, ApplicationRequired (Business Required), SystemRequired",
                 "Leave 'Related Table Logical Name' and 'Option Set Values' blank unless the Data Type needs them.",
                 "If a field's table is created in this same run, list that table on the 'Tables' sheet using the same logical name."

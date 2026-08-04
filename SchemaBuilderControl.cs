@@ -45,16 +45,16 @@ namespace DataverseSchemaBuilderPlugin
         public SchemaBuilderControl()
         {
             BuildUi();
-            Load += SchemaBuilderControl_Load;
+            //Load += SchemaBuilderControl_Load;
         }
 
-        private void SchemaBuilderControl_Load(object sender, EventArgs e)
-        {
-            // If the tool is opened with no environment connected yet, immediately show
-            // the same connection picker XrmToolBox shows before entering a tool -
-            // ExecuteMethod handles checking for a connection and prompting if needed.
-            if (Service == null) ExecuteMethod(OnConnectRequested);
-        }
+        //private void SchemaBuilderControl_Load(object sender, EventArgs e)
+        //{
+        //    // If the tool is opened with no environment connected yet, immediately show
+        //    // the same connection picker XrmToolBox shows before entering a tool -
+        //    // ExecuteMethod handles checking for a connection and prompting if needed.
+        //    if (Service == null) ExecuteMethod(OnConnectRequested);
+        //}
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {

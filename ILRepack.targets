@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="ILRepacker" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <ItemGroup>
+      <InputAssemblies Include="$(OutputPath)\DataverseSchemaBuilder.dll" />
+      <InputAssemblies Include="$(OutputPath)\ClosedXML.dll" />
+      <InputAssemblies Include="$(OutputPath)\ClosedXML.Parser.dll" />
+      <InputAssemblies Include="$(OutputPath)\DocumentFormat.OpenXml.dll" />
+      <InputAssemblies Include="$(OutputPath)\DocumentFormat.OpenXml.Framework.dll" />
+      <InputAssemblies Include="$(OutputPath)\ExcelNumberFormat.dll" />
+      <InputAssemblies Include="$(OutputPath)\RBush.dll" />
+      <InputAssemblies Include="$(OutputPath)\SixLabors.Fonts.dll" />
+    </ItemGroup>
+    <ILRepack
+      Parallel="true"
+      Internalize="true"
+      Union="true"
+      InputAssemblies="@(InputAssemblies)"
+      TargetKind="Dll"
+      OutputFile="$(OutputPath)\$(AssemblyName).dll"
+    />
+  </Target>
+</Project>

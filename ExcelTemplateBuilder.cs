@@ -39,7 +39,7 @@ namespace DataverseSchemaBuilderPlugin
             {
                 "String", "Memo", "Integer", "BigInt", "Decimal", "Double", "Money",
                 "Boolean", "DateTime", "Lookup", "Customer", "Owner", "Picklist",
-                "MultiSelectPicklist", "Uniqueidentifier", "EntityName"
+                "MultiSelectPicklist",  "EntityName"
             };
             for (int i = 0; i < dataTypes.Length; i++)
                 ws.Cell(i + 1, 1).Value = dataTypes[i];

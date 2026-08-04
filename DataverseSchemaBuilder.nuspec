@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>AliDiab.DataverseSchemaBuilder</id>
+    <version>1.2026.0.3</version>
+    <title>Dataverse Schema Builder</title>
+    <authors>Ali Diab</authors>
+    <owners>Ali Diab</owners>
+    <projectUrl>https://github.com/aliidiiab/DataverseSchemaBuilderPlugin</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Create Dataverse tables and fields in bulk from an Excel workbook.</description>
+    <summary>Create Dataverse tables and fields in bulk from an Excel workbook.</summary>
+    <releaseNotes>1.0.0.0: Initial release.</releaseNotes>
+    <copyright>Copyright Ali Diab 2026</copyright>
+    <tags>XrmToolBox Plugins DataverseSchemaBuilder</tags>
+    <dependencies>
+      <dependency id="XrmToolBox" version="1.2025.1.1" />
+    </dependencies>
+    <license type="file">LICENSE.txt</license>
+    <readme>README.md</readme>
+    <icon>icon.png</icon>
+  </metadata>
+  <files>
+    
+    <file src="bin\Release\DataverseSchemaBuilder.dll" target="Plugins" />
+    <file src="LICENSE.txt" target="" />
+    <file src="README.md" target="" />
+    <file src="icon.png" target="" />
+  </files>
+</package>

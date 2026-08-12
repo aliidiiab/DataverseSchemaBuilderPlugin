@@ -185,21 +185,21 @@ namespace DataverseSchemaBuilderPlugin
                     };
                     break;
 
-                case "Uniqueidentifier":
-                    attribute = new UniqueIdentifierAttributeMetadata
-                    {
-                        SchemaName = field.LogicalName,
-                        DisplayName = new Label(field.DisplayName, 1033)
-                    };
-                    break;
+                //case "Uniqueidentifier":
+                //    attribute = new UniqueIdentifierAttributeMetadata
+                //    {
+                //        SchemaName = field.LogicalName,
+                //        DisplayName = new Label(field.DisplayName, 1033)
+                //    };
+                //    break;
 
-                case "EntityName":
-                    attribute = new EntityNameAttributeMetadata
-                    {
-                        SchemaName = field.LogicalName,
-                        DisplayName = new Label(field.DisplayName, 1033)
-                    };
-                    break;
+                //case "EntityName":
+                //    attribute = new EntityNameAttributeMetadata
+                //    {
+                //        SchemaName = field.LogicalName,
+                //        DisplayName = new Label(field.DisplayName, 1033)
+                //    };
+                //    break;
 
                 case "Picklist":
                     attribute = new PicklistAttributeMetadata

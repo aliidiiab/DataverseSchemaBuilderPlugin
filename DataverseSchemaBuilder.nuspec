@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>AliDiab.DataverseSchemaBuilder</id>
-    <version>1.2026.0.4</version>
+    <version>1.2026.1.2</version>
     <title>Dataverse Schema Builder</title>
     <authors>Ali Diab</authors>
     <owners>Ali Diab</owners>
@@ -19,14 +19,14 @@
     <license type="file">LICENSE.txt</license>
     <readme>README.md</readme>
     <!-- <iconUrl>https://api.nuget.org/v3-flatcontainer/alidiab.dataverseschemabuilder/1.2026.0.3/icon</iconUrl> -->
-    <icon>https://raw.githubusercontent.com/aliidiiab/DataverseSchemaBuilderPlugin/master/icon.png</icon>
+    <iconUrl>https://raw.githubusercontent.com/aliidiiab/DataverseSchemaBuilderPlugin/master/icon.png</iconUrl>
     <!-- <icon>icon.png</icon> -->
   </metadata>
   <files>
-    
+    <!-- <file src="bin\Release\*.dll" target="Plugins" /> -->
     <file src="bin\Release\DataverseSchemaBuilder.dll" target="Plugins" />
     <file src="LICENSE.txt" target="" />
     <file src="README.md" target="" />
-    <file src="icon.png" target="" />
+    <!-- <file src="icon.png" target="" /> -->
   </files>
-</package>
+</package>  

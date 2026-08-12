@@ -245,7 +245,7 @@ namespace DataverseSchemaBuilderPlugin
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(this, "Could not create the template: " + ex.Message, "Error",
+                    MessageBox.Show(this, "Could not create the template: " + ex, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

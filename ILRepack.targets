@@ -2,14 +2,22 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="ILRepacker" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
     <ItemGroup>
-      <InputAssemblies Include="$(OutputPath)\DataverseSchemaBuilder.dll" />
-      <InputAssemblies Include="$(OutputPath)\ClosedXML.dll" />
-      <InputAssemblies Include="$(OutputPath)\ClosedXML.Parser.dll" />
-      <InputAssemblies Include="$(OutputPath)\DocumentFormat.OpenXml.dll" />
-      <InputAssemblies Include="$(OutputPath)\DocumentFormat.OpenXml.Framework.dll" />
-      <InputAssemblies Include="$(OutputPath)\ExcelNumberFormat.dll" />
-      <InputAssemblies Include="$(OutputPath)\RBush.dll" />
-      <InputAssemblies Include="$(OutputPath)\SixLabors.Fonts.dll" />
+      <InputAssemblies Include="$(OutputPath)DataverseSchemaBuilder.dll" />
+      <InputAssemblies Include="$(OutputPath)ClosedXML.dll" />
+      <InputAssemblies Include="$(OutputPath)ClosedXML.Parser.dll" />
+      <InputAssemblies Include="$(OutputPath)DocumentFormat.OpenXml.dll" />
+      <InputAssemblies Include="$(OutputPath)DocumentFormat.OpenXml.Framework.dll" />
+      <InputAssemblies Include="$(OutputPath)ExcelNumberFormat.dll" />
+      <InputAssemblies Include="$(OutputPath)RBush.dll" />
+      <InputAssemblies Include="$(OutputPath)SixLabors.Fonts.dll" />
+      <InputAssemblies Include="$(OutputPath)System.Buffers.dll" />
+      <InputAssemblies Include="$(OutputPath)System.Memory.dll" />
+      <InputAssemblies Include="$(OutputPath)System.Numerics.Vectors.dll" />
+      <InputAssemblies Include="$(OutputPath)System.Runtime.CompilerServices.Unsafe.dll" />
+      <InputAssemblies Include="$(OutputPath)System.Threading.Tasks.Extensions.dll" />
+      <InputAssemblies Include="$(OutputPath)System.ValueTuple.dll" />
+      <InputAssemblies Include="$(OutputPath)Microsoft.Bcl.HashCode.dll" />
+
     </ItemGroup>
     <ILRepack
       Parallel="true"
@@ -17,7 +25,7 @@
       Union="true"
       InputAssemblies="@(InputAssemblies)"
       TargetKind="Dll"
-      OutputFile="$(OutputPath)\$(AssemblyName).dll"
+      OutputFile="$(OutputPath)$(AssemblyName).dll"
     />
   </Target>
 </Project>
